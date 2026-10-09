@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}{{ page.title }} | {{ site.name }}{% endblock %}</title>
+<meta name="description" content="{{ page.description or site.description }}">
+{% if page.noindex %}<meta name="robots" content="noindex">
+{% endif %}
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F7F9F8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1714" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="{{ 'article' if page.section == 'blog' else 'website' }}">
+<meta property="og:title" content="{{ page.title }}">
+<meta property="og:description" content="{{ page.description or site.description }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:image" content="{{ site.url }}/img/portrait-800.jpg">
+<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/fonts/atkinson-hyperlegible-next-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/site.css?v={{ version }}">
+<script>document.documentElement.classList.add("js");</script>
+<script src="/js/site.js?v={{ version }}" defer></script>
+{% if page.has_forms %}<script src="/js/forms.js?v={{ version }}" defer></script>
+{% endif %}
+{% block head %}{% endblock %}
+</head>
+<body>
+<header class="site-header" id="top" tabindex="-1">
+{% if page.key == "home" %}
+<div class="greeting-bar"><div class="wrap"><p class="greeting" id="greeting">Welcome.</p></div></div>
+<script>(function(){var h=new Date().getHours(),g="Working late? Welcome.";if(h>=5&&h<12)g="Good morning, and welcome.";else if(h>=12&&h<17)g="Good afternoon, and welcome.";else if(h>=17&&h<22)g="Good evening, and welcome.";document.getElementById("greeting").textContent=g;})();</script>
+{% endif %}
+<a class="skip-link" href="#main">Skip to main content</a>
+  <div class="utility">
+    <div class="wrap utility-inner">
+      <form class="lang" data-lang-form hidden>
+        <label class="lang-label" for="lang-input">Select preferred language</label>
+        <div class="field-row">
+          <div class="combo">
+            <input id="lang-input" type="text" value="English" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="lang-list">
+            <button class="combo-open" type="button" tabindex="-1" aria-hidden="true" data-lang-open></button>
+            <ul id="lang-list" role="listbox" aria-label="Languages" hidden></ul>
+          </div>
+        </div>
+        <p class="lang-message" data-lang-message aria-live="polite"></p>
+      </form>
+      <form class="search" role="search" aria-label="Site search" action="/search/" method="get">
+        <label class="visually-hidden" for="search-input">Search this website</label>
+        <div class="field-row">
+          <input id="search-input" type="search" name="q" autocomplete="off" placeholder="Search this website">
+          <button class="button" type="submit">Search</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="wrap masthead">
+    <a class="brand" href="/">{% include "mark.svg" %}<span>{{ site.name }}</span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Main">
+      <ul>
+        {% for item in site.nav %}
+        <li><a href="{{ item.url }}"{% if item.key == page.key %} aria-current="page"{% elif item.key == page.section %} aria-current="true"{% endif %}>{{ item.label }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main" tabindex="-1"{% if not page.noindex %} data-pagefind-body{% endif %}>
+{% block main %}{% endblock %}
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div>
+      <p class="footer-name">{% include "mark.svg" %}<span>{{ site.name }}</span></p>
+      <p class="footer-role">{{ site.role }}</p>
+    </div>
+    {% if site.profiles %}
+    <nav aria-label="Profiles"><ul class="footer-links">{% for link in site.profiles %}<li><a href="{{ link.url }}">{{ link.label }}</a></li>{% endfor %}</ul></nav>
+    {% endif %}
+    <nav aria-label="Site information"><ul class="footer-links"><li><a href="#top">Back to top</a></li>{% for link in site.footer_links %}<li><a href="{{ link.url }}">{{ link.label }}</a></li>{% endfor %}</ul></nav>
+    <p class="copyright">&copy; <span data-year>{{ year }}</span> {{ site.name }}</p>
+  </div>
+</footer>
+</body>
+</html>

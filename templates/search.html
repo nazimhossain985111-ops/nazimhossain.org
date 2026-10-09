@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block head %}<script src="/js/search.js?v={{ version }}" type="module"></script>{% endblock %}
+{% block main %}
+<div class="wrap page">
+  <h1>Search</h1>
+  <form class="search-page" role="search" aria-label="Search page" action="/search/" method="get">
+    <label for="search-page-input">Search this website</label>
+    <div class="field-row">
+      <input id="search-page-input" type="search" name="q" autocomplete="off">
+      <button class="button" type="submit">Search</button>
+    </div>
+  </form>
+  <p id="search-status" class="search-status" role="status" tabindex="-1"></p>
+  <ol id="search-results" class="results"></ol>
+</div>
+{% endblock %}

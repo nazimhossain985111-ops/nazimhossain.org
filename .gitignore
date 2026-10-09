@@ -1,0 +1,6 @@
+dist/
+__pycache__/
+.wrangler/
+.dev.vars
+node_modules/
+*.exe

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}{{ site.name }}{% endblock %}
+{% block main %}
+<section class="hero wrap" aria-labelledby="hero-name">
+  <picture class="portrait">
+    <source type="image/webp" srcset="/img/portrait-480.webp 480w, /img/portrait-800.webp 800w, /img/portrait-1200.webp 1200w" sizes="(min-width: 56rem) 22rem, 18rem">
+    <img src="/img/portrait-800.jpg" width="800" height="1000" alt="{{ site.portrait_alt }}" fetchpriority="high">
+  </picture>
+  <div class="hero-text">
+    <h1 id="hero-name">{{ site.name }}</h1>
+    <p class="role">{{ site.role }}</p>
+    <p>{{ site.intro }}</p>
+  </div>
+</section>
+{% if projects %}
+<section class="band" aria-labelledby="home-projects">
+  <div class="wrap">
+    <h2 id="home-projects">Ongoing Projects</h2>
+    <ul class="entries">
+      {% for p in projects[:3] %}
+      <li>
+        <h3><a href="/ongoing-projects/#{{ p.slug }}">{{ p.title }}</a></h3>
+        {% if p.title_bn %}<p class="title-bn" lang="bn">{{ p.title_bn }}</p>{% endif %}
+        <p class="meta">{% if p.partner %}{{ p.partner }}. {% endif %}{{ p.status }}{% if p.expected %}, expected to finish in {{ p.expected }}{% endif %}.{% if p.role %} My role: {{ p.role }}.{% endif %}</p>
+        <p>{{ p.summary }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+    <p><a href="/ongoing-projects/">See all ongoing projects</a></p>
+  </div>
+</section>
+{% endif %}
+{% if posts %}
+<section class="band" aria-labelledby="home-writing">
+  <div class="wrap">
+    <h2 id="home-writing">Latest Writing</h2>
+    <ul class="entries">
+      {% for p in posts[:2] %}
+      <li>
+        <h3><a href="{{ p.url }}" lang="{{ p.lang }}">{{ p.title }}</a></h3>
+        {% if p.title_en %}<p class="title-en">{{ p.title_en }}</p>{% endif %}
+        <p class="meta">Published on <time datetime="{{ p.date }}">{{ p.date | longdate }}</time>.{% if p.lang == "bn" %} Written in Bangla.{% endif %}</p>
+        <p>{{ p.summary }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+    <p><a href="/blog/">Read more on the blog</a></p>
+  </div>
+</section>
+{% endif %}
+{% if need_help %}
+<section class="band band-alt" aria-labelledby="home-help">
+  <div class="wrap">
+    <h2 id="home-help">Need Help?</h2>
+    <p>{{ need_help.summary }}</p>
+    <ul class="help-links">
+      <li><a href="/need-help/#research-guidance">Research Guidance</a></li>
+      <li><a href="/need-help/#career-consultation">Career Consultation</a></li>
+      <li><a href="/need-help/#disability-advocacy">Disability Advocacy</a></li>
+    </ul>
+  </div>
+</section>
+{% endif %}
+{% endblock %}

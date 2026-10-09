@@ -1,0 +1,21 @@
+// Cloudflare settings for nazimhossain.org.
+// Cloudflare builds the site with: pip install -r requirements.txt && python build.py
+// and then publishes it with: npx wrangler deploy
+{
+  "name": "nazimhossain-org",
+  "main": "worker/index.js",
+  "compatibility_date": "2025-09-01",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page",
+    "run_worker_first": true
+  },
+  "send_email": [{ "name": "MAILER" }],
+  "routes": [
+    { "pattern": "nazimhossain.org", "custom_domain": true },
+    { "pattern": "www.nazimhossain.org", "custom_domain": true }
+  ],
+  "observability": { "enabled": true }
+}

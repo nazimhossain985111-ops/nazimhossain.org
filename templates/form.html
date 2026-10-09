@@ -1,0 +1,68 @@
+{% set p = form.prefix %}
+<form class="request-form" action="/api/send" method="post" aria-label="{{ form.label }}" data-form data-success="{{ form.success }}">
+  <input type="hidden" name="form" value="{{ key }}">
+  <div class="form-status" data-status tabindex="-1"></div>
+  <div class="form-errors" data-errors tabindex="-1" hidden>
+    <h3>Please correct the following</h3>
+    <ul></ul>
+  </div>
+  <div class="field">
+    <label for="{{ p }}-name">Name {{ "(required)" if form.contact_required else "(optional)" }}</label>
+    <input id="{{ p }}-name" name="name" type="text" autocomplete="name" maxlength="100"{% if form.contact_required %} required data-error="Enter your name."{% endif %}>
+  </div>
+  <div class="field">
+    <label for="{{ p }}-email">Email {{ "(required)" if form.contact_required else "(optional, if you would like a reply)" }}</label>
+    <input id="{{ p }}-email" name="email" type="email" autocomplete="email" maxlength="254"{% if form.contact_required %} required data-error="Enter your email address."{% endif %}>
+  </div>
+  {% if form.contact_required %}
+  <div class="field">
+    <label for="{{ p }}-phone">Phone or WhatsApp (optional)</label>
+    <input id="{{ p }}-phone" name="phone" type="tel" autocomplete="tel" maxlength="40">
+  </div>
+  {% endif %}
+  {% if form.choose_one %}
+  <fieldset class="choices" id="{{ p }}-{{ form.choose_one.name }}" data-required-group data-error="{{ form.choose_one.error }}">
+    <legend>{{ form.choose_one.legend }}</legend>
+    {% for option in form.choose_one.options %}
+    <div class="choice">
+      <input type="radio" id="{{ p }}-{{ form.choose_one.name }}-{{ loop.index }}" name="{{ form.choose_one.name }}" value="{{ option }}"{% if loop.first %} required{% endif %}>
+      <label for="{{ p }}-{{ form.choose_one.name }}-{{ loop.index }}">{{ option }}</label>
+    </div>
+    {% endfor %}
+  </fieldset>
+  {% endif %}
+  {% if form.choose_many %}
+  <fieldset class="choices">
+    <legend>{{ form.choose_many.legend }}</legend>
+    {% for option in form.choose_many.options %}
+    <div class="choice">
+      <input type="checkbox" id="{{ p }}-{{ form.choose_many.name }}-{{ loop.index }}" name="{{ form.choose_many.name }}" value="{{ option }}">
+      <label for="{{ p }}-{{ form.choose_many.name }}-{{ loop.index }}">{{ option }}</label>
+    </div>
+    {% endfor %}
+    {% if form.choose_many.other %}
+    <div class="choice">
+      <input type="checkbox" id="{{ p }}-other-choice" name="{{ form.choose_many.name }}" value="Other" data-other-choice="{{ p }}-other">
+      <label for="{{ p }}-other-choice">Other (please specify)</label>
+    </div>
+    <div class="field other-field">
+      <label for="{{ p }}-other">If you chose Other, please specify</label>
+      <input id="{{ p }}-other" name="other" type="text" maxlength="200" data-error="Please specify what Other means for you.">
+    </div>
+    {% endif %}
+  </fieldset>
+  {% endif %}
+  <div class="field">
+    <label for="{{ p }}-message">{{ form.message_label }} (required, maximum {{ form.max_words }} words)</label>
+    <p class="hint" id="{{ p }}-message-hint">You may write in Bangla or English.</p>
+    <textarea id="{{ p }}-message" name="message" rows="7" required data-max-words="{{ form.max_words }}" data-error="Write your {{ 'suggestion' if key == 'suggestion' else 'message' }}." aria-describedby="{{ p }}-message-hint {{ p }}-message-count"></textarea>
+    <p class="word-count" id="{{ p }}-message-count" data-count>0 of {{ form.max_words }} words used.</p>
+    <p class="visually-hidden" aria-live="polite" data-limit></p>
+  </div>
+  <div class="hp" aria-hidden="true">
+    <label for="{{ p }}-website">Leave this field empty</label>
+    <input id="{{ p }}-website" name="website" type="text" tabindex="-1" autocomplete="off">
+  </div>
+  <p class="privacy-note">I use your details only to reply to you. Read the <a href="/privacy/">Privacy Policy</a>.</p>
+  <button class="button" type="submit">{{ form.submit }}</button>
+</form>

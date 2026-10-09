@@ -1,0 +1,70 @@
+/* nazimhossain.org design tokens.
+   Light is the default; dark follows the visitor's device setting.
+   Every text colour meets WCAG AAA (7:1) against its background; borders meet 3:1. */
+:root {
+  color-scheme: light dark;
+
+  /* Colour */
+  --paper: #F7F9F8;        /* page background: clean, slightly cool white */
+  --surface: #E9EFEC;      /* alternate sections and form panels */
+  --ink: #14201B;          /* body text and headings */
+  --ink-soft: #3B4842;     /* dates, captions and hints */
+  --green: #08573F;        /* signature: links, buttons, braille mark */
+  --green-deep: #0C3A2D;   /* footer band */
+  --on-deep: #F7F9F8;      /* text on the footer band */
+  --link-on-deep: #BFE5D4; /* links on the footer band */
+  --red: #A8231A;          /* error messages and required markers only */
+  --sun: #D42A3C;          /* the single red dot in the braille mark, decoration only */
+  --line: #6A7872;         /* input borders */
+  --rule: #C9D3CE;         /* decorative dividers */
+  --green-hover: #0C3A2D;  /* button background on hover */
+  --focus: #14201B;        /* focus outline on light backgrounds */
+  --focus-on-deep: #F7F9F8;
+
+  /* Type */
+  --font-display: "Tiro Bangla", "Noto Serif Bengali", Georgia, serif;
+  --font-body: "Atkinson Hyperlegible Next", "Noto Sans Bengali", system-ui, sans-serif;
+  --size-small: 1rem;      /* 16px, the smallest text anywhere on the site */
+  --size-body: 1.125rem;   /* 18px */
+  --size-h4: 1.3125rem;    /* 21px */
+  --size-h3: 1.5rem;       /* 24px */
+  --size-h2: 2.25rem;      /* 36px */
+  --size-h1: 3rem;         /* 48px */
+  --size-hero: 3.75rem;    /* 60px, the name on the home page */
+  --leading-body: 1.6;
+  --leading-display: 1.15;
+  --measure: 68ch;
+
+  /* Space, built on the 18px body size */
+  --space-1: 0.375rem;
+  --space-2: 0.75rem;
+  --space-3: 1.125rem;
+  --space-4: 1.6875rem;
+  --space-5: 2.25rem;
+  --space-6: 3.375rem;
+  --space-7: 4.5rem;
+
+  --radius: 4px;
+  --focus-ring: 3px solid var(--focus);
+  --target-min: 44px;      /* minimum size of anything clickable */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0F1714;
+    --surface: #17221E;
+    --ink: #E6EDE9;
+    --ink-soft: #B9C6C0;
+    --green: #8FD3B6;
+    --green-deep: #123B2E;
+    --on-deep: #E6EDE9;
+    --link-on-deep: #A9DCC6;
+    --red: #FF9C90;
+    --sun: #FF7A85;
+    --line: #71837B;
+    --rule: #2C3A35;
+    --green-hover: #B0E2CD;
+    --focus: #E6EDE9;
+    --focus-on-deep: #E6EDE9;
+  }
+}

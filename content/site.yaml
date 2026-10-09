@@ -1,0 +1,29 @@
+# Site settings for nazimhossain.org.
+# After editing, run: python build.py
+
+name: Nazim Hossain
+url: https://nazimhossain.org
+role: Researcher, disability rights advocate and developer of accessible audio games
+description: Nazim Hossain is a researcher from Bangladesh who studies the role of expert knowledge in policy making, works for the rights of people with disabilities and builds audio games for blind and visually impaired players.
+intro: I am a Research Fellow at Bangla Academy, studying how expert knowledge shapes policy making in Bangladesh. Alongside research, I work for the rights of people with disabilities, and I build audio games that blind and visually impaired players can enjoy on equal terms with everyone else.
+portrait_alt: Portrait of Nazim Hossain in a dark suit, white shirt and red checked tie, against a blue background.
+
+nav:
+  - {key: home, label: "Home", url: /}
+  - {key: research, label: "Research", url: /research/}
+  - {key: ongoing-projects, label: "Ongoing Projects", url: /ongoing-projects/}
+  - {key: blog, label: "Blog", url: /blog/}
+  - {key: book-reviews, label: "Book Reviews", url: /book-reviews/}
+  - {key: games-and-tools, label: "Games and Tools", url: /games-and-tools/}
+  - {key: need-help, label: "Need Help?", url: /need-help/}
+  - {key: suggestions-and-support, label: "Suggestions and Support", url: /suggestions-and-support/}
+  - {key: about, label: "About", url: /about/}
+  - {key: contact, label: "Contact", url: /contact/}
+
+footer_links:
+  - {label: "Accessibility Statement", url: /accessibility/}
+  - {label: "Privacy Policy", url: /privacy/}
+
+# Profile links appear in the footer. Example:
+#   - {label: "LinkedIn", url: "https://www.linkedin.com/in/your-name"}
+profiles: []

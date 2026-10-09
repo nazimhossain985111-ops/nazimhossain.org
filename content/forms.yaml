@@ -1,0 +1,106 @@
+# Settings for the forms on the Need Help and Suggestions pages.
+# build.py turns these into the forms, and the worker uses them to check
+# what people send. To put a form on a page, write [[form:name]] on its own line.
+
+research-guidance:
+  title: Research Guidance
+  label: Research guidance request
+  prefix: rg
+  contact_required: true
+  max_words: 100
+  choose_one:
+    name: level
+    legend: Your current level (choose one)
+    error: Choose your current level.
+    options:
+      - Undergraduate
+      - Master's
+  choose_many:
+    name: needs
+    legend: What are you looking for? (choose all that apply)
+    other: true
+    options:
+      - Choosing a research topic
+      - Writing a research proposal
+      - Writing a literature review
+      - Finding a research gap
+      - Framing research questions
+      - Choosing a research method
+      - Designing a questionnaire or interview guide
+      - Data analysis
+      - Citation and referencing
+      - Academic writing
+      - Publishing in a journal
+  message_label: Describe your situation
+  submit: Send request
+  success: Thank you. Your message has been sent, and I will reply as soon as I can.
+
+career-consultation:
+  title: Career Consultation
+  label: Career consultation request
+  prefix: cc
+  contact_required: true
+  max_words: 100
+  choose_one:
+    name: stage
+    legend: Which best describes you? (choose one)
+    error: Choose the option that best describes you.
+    options:
+      - School student
+      - College student
+      - University student
+      - Recent graduate
+  choose_many:
+    name: needs
+    legend: What do you need help with? (choose all that apply)
+    other: true
+    options:
+      - Choosing a subject or major
+      - Higher studies and scholarships
+      - Skill development
+      - CV and job applications
+      - Government job preparation
+  message_label: Describe your situation
+  submit: Send request
+  success: Thank you. Your message has been sent, and I will reply as soon as I can.
+
+disability-advocacy:
+  title: Disability Advocacy
+  label: Disability advocacy request
+  prefix: da
+  contact_required: true
+  max_words: 100
+  choose_one:
+    name: role
+    legend: Which best describes you? (choose one)
+    error: Choose the option that best describes you.
+    options:
+      - Person with a disability
+      - Parent or guardian
+      - Teacher or institution
+      - Organisation
+      - Other
+  choose_many:
+    name: issues
+    legend: What is the issue about? (choose all that apply)
+    other: true
+    options:
+      - Education and exam accommodations (scribe, extra time, accessible materials)
+      - Recruitment exams and job quota
+      - Discrimination at work
+      - Disability ID card and allowance
+      - Accessible technology
+      - Access to buildings or services
+  message_label: Describe your situation
+  submit: Send request
+  success: Thank you. Your message has been sent, and I will reply as soon as I can.
+
+suggestion:
+  title: Suggestion
+  label: Suggestion
+  prefix: sg
+  contact_required: false
+  max_words: 150
+  message_label: Your suggestion
+  submit: Send suggestion
+  success: Thank you for your suggestion. Your message has been sent.
