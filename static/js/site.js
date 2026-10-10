@@ -1,4 +1,4 @@
-/* nazimhossain.org: footer year, menu button and language picker.
+/* nazimhossain.org: footer year, menu button and language button.
    No tracking. Nothing is sent anywhere until a visitor chooses to translate a page. */
 (function () {
   "use strict";
@@ -53,7 +53,42 @@
   var translated = /\.translate\.goog$/.test(location.hostname);
   var matches = [];
   var active = -1;
-  form.hidden = false;
+
+  /* The globe button in the header opens and closes the panel that holds the form. */
+  var picker = document.querySelector("[data-lang-picker]");
+  var toggle = picker.querySelector("[data-lang-toggle]");
+  var panel = picker.querySelector("#lang-panel");
+  var currentName = picker.querySelector("[data-lang-current]");
+  toggle.hidden = false;
+
+  function openPanel() {
+    panel.hidden = false;
+    toggle.setAttribute("aria-expanded", "true");
+    input.focus();
+  }
+  function closePanel(returnFocus) {
+    if (panel.hidden) return;
+    closeList();
+    panel.hidden = true;
+    toggle.setAttribute("aria-expanded", "false");
+    if (returnFocus) toggle.focus();
+  }
+  toggle.addEventListener("click", function () {
+    if (panel.hidden) openPanel(); else closePanel(false);
+  });
+  picker.addEventListener("keydown", function (e) {
+    /* The first Escape closes the list of languages; the next one closes the panel. */
+    if (e.key === "Escape" && !e.defaultPrevented && !panel.hidden) {
+      e.preventDefault();
+      closePanel(true);
+    }
+  });
+  picker.addEventListener("focusout", function (e) {
+    if (e.relatedTarget && !picker.contains(e.relatedTarget)) closePanel(false);
+  });
+  document.addEventListener("click", function (e) {
+    if (!picker.contains(e.target)) closePanel(false);
+  });
 
   function names(lang) {
     return lang.slice(1).map(function (n) { return n.toLowerCase(); });
@@ -150,7 +185,7 @@
 
   if (translated) {
     var current = byCode(new URLSearchParams(location.search).get("_x_tr_tl"));
-    if (current) { input.value = current[1]; input.dataset.code = current[0]; }
+    if (current) { input.value = current[1]; input.dataset.code = current[0]; currentName.textContent = current[1]; }
   }
 
   input.addEventListener("focus", function () { input.select(); });

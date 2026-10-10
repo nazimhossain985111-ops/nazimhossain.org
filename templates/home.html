@@ -3,13 +3,23 @@
 {% block main %}
 <section class="hero wrap" aria-labelledby="hero-name">
   <picture class="portrait">
-    <source type="image/webp" srcset="/img/portrait-480.webp 480w, /img/portrait-800.webp 800w, /img/portrait-1200.webp 1200w" sizes="(min-width: 56rem) 22rem, 18rem">
-    <img src="/img/portrait-800.jpg" width="800" height="1000" alt="{{ site.portrait_alt }}" fetchpriority="high">
+    <source type="image/webp" srcset="/img/portrait-480.webp 480w, /img/portrait-800.webp 600w" sizes="(min-width: 56rem) 19rem, 16rem">
+    <img src="/img/portrait-800.jpg" srcset="/img/portrait-480.jpg 480w, /img/portrait-800.jpg 600w" sizes="(min-width: 56rem) 19rem, 16rem" width="600" height="750" alt="{{ site.portrait_alt }}" fetchpriority="high">
   </picture>
   <div class="hero-text">
     <h1 id="hero-name">{{ site.name }}</h1>
     <p class="role">{{ site.role }}</p>
     <p>{{ site.intro }}</p>
+    <div class="hero-actions">
+      <a class="button" href="{{ site.cv }}" download>Download CV<span class="visually-hidden"> ({{ site.cv_size }})</span></a>
+      <a class="button button-secondary" href="/contact/">Contact me</a>
+    </div>
+    <ul class="profile-links" aria-label="Email and profiles">
+      <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+      {% for link in site.profiles %}
+      <li><a href="{{ link.url }}">{{ link.label }}</a></li>
+      {% endfor %}
+    </ul>
   </div>
 </section>
 {% if projects %}

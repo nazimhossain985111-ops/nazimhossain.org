@@ -4,3 +4,16 @@ __pycache__/
 .dev.vars
 node_modules/
 *.exe
+
+# Private files kept in this folder. Never commit or push them.
+/*.doc
+/*.docx
+/*.pdf
+/*.jpg
+/*.jpeg
+/*.png
+/*.txt
+!/requirements.txt
+/WEBSITE_PLAN.md
+/content/site-copy.md
+/design/design-plan.md
