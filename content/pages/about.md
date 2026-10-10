@@ -10,7 +10,7 @@ My goal is to contribute to public policy in Bangladesh through research, univer
 
 ## Education
 
-I hold a Master of Social Sciences (MSS, 2022 to 2023) and a Bachelor of Social Sciences (BSS, 2018 to 2022) from the Department of Government and Politics at Jahangirnagar University.
+I hold a Master of Social Sciences (MSS, 2024 to 2025) and a Bachelor of Social Sciences (BSS, 2019 to 2024) from the Department of Government and Politics at Jahangirnagar University.
 
 ## Experience
 
@@ -24,7 +24,7 @@ Before that, I taught English at Dalal Bazar N.K. High School from May to Septem
 
 From September 2024 to September 2025 I was the initiator and chief coordinator of the Anti-Discrimination Visually Impaired Students' Movement, which campaigned for the rights and inclusion of visually impaired students. Following the movement's meetings with the Ministry of Public Administration, the ministry issued a circular specifying the job categories reserved for candidates with disabilities.
 
-From May 2025 to February 2026 I was the founder and president of Inclusive Jahangirnagar, a campus organisation for students with disabilities at Jahangirnagar University. It works in four areas: education, sports, culture and empowerment.
+From May 2025 to December 2025 I was the founder and president of Inclusive Jahangirnagar, a campus organisation for students with disabilities at Jahangirnagar University. It works in four areas: education, sports, culture and empowerment.
 
 I also founded an initiative that supports marginalised and rural students in Bangladesh through online classes, competitions and training in leadership, communication and language skills. In 2014 I was the convenor of the general knowledge competition of Dalal Bazar Integrated Education for Visually Impaired Children, in which more than 20 schools and over 1,000 students took part.
 
