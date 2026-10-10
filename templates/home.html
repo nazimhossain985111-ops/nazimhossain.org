@@ -52,13 +52,19 @@
 <section class="band" aria-labelledby="home-projects">
   <div class="wrap">
     <h2 id="home-projects">Ongoing Projects</h2>
-    <ul class="entries">
+    <ul class="cards">
       {% for p in projects[:3] %}
-      <li>
+      <li class="card card-link">
+        <p class="badge">{{ p.status }}</p>
         <h3><a href="/ongoing-projects/#{{ p.slug }}">{{ p.title }}</a></h3>
         {% if p.title_bn %}<p class="title-bn" lang="bn">{{ p.title_bn }}</p>{% endif %}
-        <p class="meta">{% if p.partner %}{{ p.partner }}. {% endif %}{{ p.status }}{% if p.expected %}, expected to finish in {{ p.expected }}{% endif %}.{% if p.role %} My role: {{ p.role }}.{% endif %}</p>
-        <p>{{ p.summary }}</p>
+        {% if p.role or p.partner %}
+        <dl class="card-facts">
+          {% if p.role %}<div><dt>My role</dt><dd>{{ p.role }}</dd></div>{% endif %}
+          {% if p.partner %}<div><dt>Partner</dt><dd>{{ p.partner }}</dd></div>{% endif %}
+        </dl>
+        {% endif %}
+        <p class="card-summary">{{ p.summary }}</p>
       </li>
       {% endfor %}
     </ul>
@@ -66,19 +72,52 @@
   </div>
 </section>
 {% endif %}
+{% if site.race_master %}
+<section class="band band-alt" aria-labelledby="home-games">
+  <div class="wrap">
+    <h2 id="home-games">Games and Tools</h2>
+    <div class="feature">
+      <div class="feature-media">
+        <picture><source type="image/webp" srcset="/img/race-master-logo.webp"><img src="/img/race-master-logo.png" width="256" height="171" alt="" loading="lazy"></picture>
+      </div>
+      <div class="feature-text">
+        <h3>Race Master</h3>
+        <p>{{ site.race_master.summary }}</p>
+        <dl class="card-facts">
+          {% for f in site.race_master.facts %}<div><dt>{{ f.label }}</dt><dd>{{ f.value }}</dd></div>{% endfor %}
+        </dl>
+        <div class="feature-actions">
+          <a class="button" href="{{ site.race_master.download }}">Download Race Master for Windows ({{ site.race_master.size }})</a>
+          <a class="button button-secondary" href="/games-and-tools/race-master/">Race Master Guide</a>
+        </div>
+      </div>
+    </div>
+    <p><a href="/games-and-tools/">See all games and tools</a></p>
+  </div>
+</section>
+{% endif %}
 {% if posts %}
 <section class="band" aria-labelledby="home-writing">
   <div class="wrap">
     <h2 id="home-writing">Latest Writing</h2>
-    <ul class="entries">
+    <ul class="cards">
       {% for p in posts[:2] %}
-      <li>
+      <li class="card card-link{% if loop.length == 1 %} card-wide{% endif %}">
         <h3><a href="{{ p.url }}" lang="{{ p.lang }}">{{ p.title }}</a></h3>
         {% if p.title_en %}<p class="title-en">{{ p.title_en }}</p>{% endif %}
-        <p class="meta">Published on <time datetime="{{ p.date }}">{{ p.date | longdate }}</time>.{% if p.lang == "bn" %} Written in Bangla.{% endif %}</p>
-        <p>{{ p.summary }}</p>
+        <p class="card-meta"><time datetime="{{ p.date }}">{{ p.date | longdate }}</time><span class="visually-hidden">,</span> <span>{{ "Bangla" if p.lang == "bn" else "English" }}</span><span class="visually-hidden">,</span> <span>{{ p.minutes }} minute read</span></p>
+        <p class="card-summary">{{ p.summary }}</p>
       </li>
       {% endfor %}
+      <li class="card">
+        <h3><a href="/writings/">Writings</a></h3>
+        <ul class="card-list">
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/book-reviews/">Book Reviews</a></li>
+          <li><a href="/poems/">Poems</a></li>
+          <li><a href="/short-stories/">Short Stories</a></li>
+        </ul>
+      </li>
     </ul>
     <p><a href="/blog/">Read more on the blog</a></p>
   </div>
@@ -89,10 +128,14 @@
   <div class="wrap">
     <h2 id="home-help">Need Help?</h2>
     <p>{{ need_help.help_summary }}</p>
-    <ul class="help-links">
-      <li><a href="/suggestions-and-support/#research-guidance">Research Guidance</a></li>
-      <li><a href="/suggestions-and-support/#career-consultation">Career Consultation</a></li>
-      <li><a href="/suggestions-and-support/#disability-advocacy">Disability Advocacy</a></li>
+    <ul class="cards">
+      {% for h in site.help %}
+      <li class="card">
+        <h3>{{ h.title }}</h3>
+        <p>{{ h.text }}</p>
+        <a class="button button-secondary" href="/suggestions-and-support/#{{ h.id }}">Ask for help<span class="visually-hidden"> with {{ h.title }}</span></a>
+      </li>
+      {% endfor %}
     </ul>
   </div>
 </section>

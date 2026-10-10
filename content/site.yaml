@@ -30,6 +30,22 @@ highlights:
   - {text: "Initiator and Chief Coordinator of the Anti-Discrimination Visually Impaired Students' Movement", url: "/about/#movement", photo: movement-public-administration}
   - {text: "Founder and President of Inclusive Jahangirnagar", url: "/about/#inclusive-jahangirnagar", logo: inclusive-jahangirnagar}
 
+# The Race Master feature on the home page. When a new version is released,
+# update the download link and size here and on the Games and Tools page.
+race_master:
+  summary: "Race Master is an audio racing game for blind and low vision players. Every menu and every moment of the race is spoken, so you always know where you are, what is around you and what is happening on the track."
+  download: "https://github.com/nazimhossain985111-ops/nazimhossain.org/releases/download/race-master-2026.10.03/Race_Master.exe"
+  size: "122 MB"
+  facts:
+    - {label: "Works on", value: "Windows, 64-bit"}
+    - {label: "Released", value: "3 October 2026"}
+
+# The Need Help cards on the home page. Each id is a section on the Suggestions and Support page.
+help:
+  - {id: research-guidance, title: "Research Guidance", text: "Whether you are choosing a topic, searching for a research gap or working on your literature review, tell me where you are stuck and I will suggest how to move forward."}
+  - {id: career-consultation, title: "Career Consultation", text: "Choosing a direction is rarely easy, whether you are in school, college or university."}
+  - {id: disability-advocacy, title: "Disability Advocacy", text: "Every person with a disability has the same right to education, employment and dignity as everyone else."}
+
 footer_links:
   - {label: "Accessibility Statement", url: /accessibility/}
   - {label: "Privacy Policy", url: /privacy/}

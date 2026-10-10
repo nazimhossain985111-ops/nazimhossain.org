@@ -85,6 +85,7 @@ def load_posts() -> list[dict]:
         meta.update(key=f"blog-{path.stem}", section="blog", slug=path.stem, url=f"/blog/{path.stem}/", body=to_html(body))
         meta.setdefault("lang", "en")
         meta["date"] = str(meta.get("date", ""))
+        meta["minutes"] = max(1, round(len(body.split()) / 200))  # reading time at about 200 words a minute
         posts.append(meta)
     return sorted(posts, key=lambda p: p["date"], reverse=True)
 

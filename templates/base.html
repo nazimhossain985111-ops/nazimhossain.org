@@ -73,6 +73,7 @@
     <div>
       <p class="footer-name">{% include "mark.svg" %}<span>{{ site.name }}</span></p>
       <p class="footer-role">{{ site.role }}</p>
+      <p class="footer-email"><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
     </div>
     {% if site.profiles %}
     <nav aria-label="Profiles"><ul class="footer-links">{% for link in site.profiles %}<li><a href="{{ link.url }}">{{ link.label }}</a></li>{% endfor %}</ul></nav>
