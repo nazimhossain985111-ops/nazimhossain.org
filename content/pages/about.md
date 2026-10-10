@@ -10,7 +10,7 @@ My goal is to contribute to public policy in Bangladesh through research, univer
 
 ## Education
 
-I hold a Master of Social Sciences (MSS, 2024 to 2025) and a Bachelor of Social Sciences (BSS, 2019 to 2024) from the Department of Government and Politics at Jahangirnagar University.
+I hold a Master of Social Science (MSS, 2024 to 2025) and a Bachelor of Social Science (BSS, 2019 to 2024) from the Department of Government and Politics at Jahangirnagar University.
 
 ## Experience
 
@@ -30,7 +30,7 @@ I also founded an initiative that supports marginalised and rural students in Ba
 
 ## Achievements and debate
 
-In 2024 I was Prime Minister of the finalist team at the NASPAA International Simulation Competition. I debated at the Students For Liberty tournament arranged by DFIR in 2023 and at the tournament of the Physically-challenged Development Foundation in 2022. I served as Vice President (Debate) of SRBM in 2023, and I am a former Executive Member of the Jahangirnagar University Debate Organisation (JUDO).
+In 2024 I was Prime Minister of the finalist team at the NASPAA Simulation Competition. I debated at the Students For Liberty tournament arranged by DFIR in 2023 and at the tournament of the Physically-challenged Development Foundation in 2022. I served as Vice President (Debate) of SRBM in 2023, and I am a former Executive Member of the Jahangirnagar University Debate Organisation (JUDO).
 
 ## Skills and languages
 
