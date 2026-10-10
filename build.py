@@ -30,6 +30,8 @@ DIST = ROOT / "dist"
 CSS_PARTS = [ROOT / "design" / "tokens.css", STATIC / "css" / "fonts.css", STATIC / "css" / "base.css"]
 # [[form:key]] inserts a form. [[form:key:4]] does the same under an h3 section, so its error heading is an h4.
 FORM_MARKER = re.compile(r"<p>\[\[form:([a-z-]+)(?::([3-6]))?\]\]</p>")
+# [[photos:key]] shows one photo from content/photos.yaml; [[photos:key other-key]] shows two side by side.
+PHOTO_MARKER = re.compile(r"<p>\[\[photos:([a-z0-9 -]+)\]\]</p>")
 # Old addresses that now live elsewhere. The worker sends visitors on with a permanent redirect.
 REDIRECTS = {"/need-help/": "/suggestions-and-support/"}
 
@@ -108,6 +110,7 @@ def write_sitemap(site: dict, urls: list[str]) -> None:
 def main() -> None:
     site = yaml.safe_load((CONTENT / "site.yaml").read_text(encoding="utf-8"))
     forms = yaml.safe_load((CONTENT / "forms.yaml").read_text(encoding="utf-8"))
+    photos = yaml.safe_load((CONTENT / "photos.yaml").read_text(encoding="utf-8"))
     pages = load_pages()
     projects = load_projects()
     posts = load_posts()
@@ -119,7 +122,7 @@ def main() -> None:
         lstrip_blocks=True,
     )
     env.filters["longdate"] = long_date
-    env.globals.update(site=site, year=dt.date.today().year, version=dt.datetime.now().strftime("%Y%m%d%H%M"))
+    env.globals.update(site=site, photos=photos, year=dt.date.today().year, version=dt.datetime.now().strftime("%Y%m%d%H%M"))
 
     # The worker that sends form email reads the same form settings, and the redirects.
     (ROOT / "worker" / "forms.json").write_text(json.dumps(forms, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -130,6 +133,7 @@ def main() -> None:
             key = match.group(1)
             return env.get_template("form.html").render(key=key, form=forms[key], level=int(match.group(2) or 3))
         body, count = FORM_MARKER.subn(form_html, page["body"])
+        body = PHOTO_MARKER.sub(lambda m: env.get_template("photos.html").render(keys=m.group(1).split()), body)
         return {**page, "body": body, "has_forms": count > 0}
 
     if DIST.exists():

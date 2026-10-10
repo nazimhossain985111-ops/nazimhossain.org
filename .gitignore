@@ -13,6 +13,7 @@ node_modules/
 /*.jpeg
 /*.png
 /*.ico
+/*.zip
 /*.txt
 !/requirements.txt
 /WEBSITE_PLAN.md

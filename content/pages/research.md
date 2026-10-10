@@ -4,6 +4,8 @@ description: Research, papers and talks by Nazim Hossain on public policy, gover
 ---
 My research looks at public policy, governance and the rights of persons with disabilities in Bangladesh.
 
+[[photos:disability-seminar-panel]]
+
 ## Current research
 
 ### Role of Expert Knowledge in the Policy Formulation Process: An Empirical Study on Bangladesh

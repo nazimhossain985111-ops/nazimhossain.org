@@ -22,6 +22,32 @@
     </ul>
   </div>
 </section>
+{% if site.highlights %}
+<section class="band band-alt" aria-labelledby="home-highlights">
+  <div class="wrap">
+    <h2 id="home-highlights">Highlights</h2>
+    <ul class="highlights">
+      {% for h in site.highlights %}
+      <li class="highlight">
+        <div class="highlight-media{% if h.logo %} highlight-logo highlight-logo-{{ h.logo }}{% endif %}">
+          {% if h.photo %}
+          <picture>
+            <source type="image/webp" srcset="/img/photos/{{ h.photo }}-640.webp 640w, /img/photos/{{ h.photo }}-1200.webp {{ photos[h.photo].width }}w" sizes="(min-width: 60rem) 36rem, 12rem">
+            <img src="/img/photos/{{ h.photo }}-640.jpg" width="{{ photos[h.photo].width }}" height="{{ photos[h.photo].height }}" alt="" loading="lazy" decoding="async">
+          </picture>
+          {% elif h.logo == "race-master" %}
+          <picture><source type="image/webp" srcset="/img/race-master-logo.webp"><img src="/img/race-master-logo.png" width="256" height="171" alt="" loading="lazy"></picture>
+          {% else %}
+          <picture><source type="image/webp" srcset="/img/logos/{{ h.logo }}-400.webp"><img src="/img/logos/{{ h.logo }}-400.png" width="400" height="400" alt="" loading="lazy"></picture>
+          {% endif %}
+        </div>
+        <h3><a href="{{ h.url }}">{{ h.text }}</a></h3>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endif %}
 {% if projects %}
 <section class="band" aria-labelledby="home-projects">
   <div class="wrap">

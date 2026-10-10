@@ -16,6 +16,7 @@
     </dl>
     <p>{{ p.summary }}</p>
     {{ p.body_html | safe }}
+    {% if p.photos %}{% with keys = p.photos %}{% include "photos.html" %}{% endwith %}{% endif %}
     {% if p.updates %}
     <h3>Updates</h3>
     <dl class="updates">

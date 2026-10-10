@@ -22,9 +22,23 @@ Before that, I taught English at Dalal Bazar N.K. High School from May to Septem
 
 ## Leadership and advocacy
 
+<div class="org" id="movement" markdown="1">
+<img src="/img/logos/movement.svg" alt="" width="64" height="64">
+
 From September 2024 to September 2025 I was the initiator and chief coordinator of the Anti-Discrimination Visually Impaired Students' Movement, which campaigned for the rights and inclusion of visually impaired students. Following the movement's meetings with the Ministry of Public Administration, the ministry issued a circular specifying the job categories reserved for candidates with disabilities.
 
+</div>
+
+[[photos:movement-public-administration movement-ministry-meeting]]
+
+<div class="org" id="inclusive-jahangirnagar" markdown="1">
+<picture><source type="image/webp" srcset="/img/logos/inclusive-jahangirnagar-400.webp"><img src="/img/logos/inclusive-jahangirnagar-400.png" alt="" width="64" height="64"></picture>
+
 From May 2025 to December 2025 I was the founder and president of Inclusive Jahangirnagar, a campus organisation for students with disabilities at Jahangirnagar University. It works in four areas: education, sports, culture and empowerment.
+
+</div>
+
+[[photos:inclusive-cricket inclusive-dialogue inclusive-recruitment]]
 
 I also founded an initiative that supports marginalised and rural students in Bangladesh through online classes, competitions and training in leadership, communication and language skills. In 2014 I was the convenor of the general knowledge competition of Dalal Bazar Integrated Education for Visually Impaired Children, in which more than 20 schools and over 1,000 students took part.
 

@@ -1,0 +1,63 @@
+# Photos shown on the website. Each one lives in static/img/photos as
+# <key>-640 and <key>-1200, in both .webp and .jpg, all in a 3 by 2 shape.
+# Width and height are the size of the larger file (smaller than 1200 when the
+# original was small), so the browser keeps the right shape while loading.
+# Show photos on a page with [[photos:key]], or up to three in a row with
+# [[photos:first-key second-key third-key]]. Projects list theirs under photos:.
+# credit and source are optional: they add "Photo: <credit>" linked to the source.
+
+movement-public-administration:
+  width: 1200
+  height: 800
+  alt: "Nazim Hossain, in a dark suit and red tie, stands on the left of a group of five in front of a building. Its sign reads, in Bangla, Building 6, Public Administration Computer Centre, Ministry of Public Administration."
+  caption: "Members of the movement at the Ministry of Public Administration."
+
+movement-ministry-meeting:
+  width: 1032
+  height: 688
+  alt: "Nazim Hossain, in a dark jacket, holds the movement's Bangla banner together with officials and fellow members in an office."
+  caption: "Holding the movement's banner with officials and fellow members."
+
+inclusive-cricket:
+  width: 675
+  height: 450
+  alt: "Two teams of cricket players stand in a long line across a playground with guests in the middle. One team wears purple and white shirts, the other yellow and green."
+  caption: "A friendly cricket match between visually impaired students of Dhaka University and Jahangirnagar University, played on 17 May 2025 to mark the founding day of Inclusive Jahangirnagar. The Jahangirnagar University team won by 55 runs."
+  credit: BSS
+  source: https://www.bssnews.net/news/274013
+
+inclusive-dialogue:
+  width: 1200
+  height: 800
+  alt: "Nazim Hossain speaks at a lectern behind a long table of seated speakers. A banner behind him reads Inclusive Dialogue for JUCSU 2025, Representative Debate."
+  caption: "Speaking at Inclusive Dialogue for JUCSU 2025, a representative debate at Jahangirnagar University on 5 September 2025."
+
+inclusive-recruitment:
+  width: 1200
+  height: 800
+  alt: "Nazim Hossain, wearing a cap, sits at a laptop at a desk while two students stand beside him. The green banner behind him reads Member Recruitment, Inclusive Jahangirnagar, A Volunteer Organization."
+  caption: "At the member recruitment desk of Inclusive Jahangirnagar."
+
+bangla-academy:
+  width: 1200
+  height: 800
+  alt: "Nazim Hossain, in a white striped shirt, stands at the centre of a large group in a meeting room, under a sign that reads Bangla Academy in Bangla."
+  caption: "At Bangla Academy."
+
+disability-seminar-speech:
+  width: 1200
+  height: 800
+  alt: "Nazim Hossain, in a dark suit and red tie, speaks at a lectern. The banner behind him reads Seminar on: Towards an Inclusive Jahangirnagar University."
+  caption: "Speaking at the seminar Towards an Inclusive Jahangirnagar University on 4 August 2026, organised by the Department of International Relations, Jahangirnagar University, and the Centre for Disability in Development (CDD), with support from Sightsavers' Equal Bangladesh Campaign."
+
+disability-seminar-group:
+  width: 1200
+  height: 800
+  alt: "Speakers and organisers of the seminar in two rows in front of its banner. Nazim Hossain, in a dark suit and red tie, sits at the left end of the front row."
+  caption: "Speakers and organisers of the seminar."
+
+disability-seminar-panel:
+  width: 1200
+  height: 800
+  alt: "Nazim Hossain, in a dark suit and red tie, speaks into a microphone, seated with four other panellists under the banner of the seminar Towards an Inclusive Jahangirnagar University."
+  caption: "On the panel of the seminar Towards an Inclusive Jahangirnagar University on 4 August 2026."

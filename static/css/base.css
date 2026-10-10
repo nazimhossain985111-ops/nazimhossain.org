@@ -199,6 +199,33 @@ a.button { display: inline-flex; align-items: center; text-decoration: none; }
 .help-links { display: flex; flex-wrap: wrap; gap: 0 var(--space-5); padding: 0; list-style: none; }
 .help-links a { display: inline-block; padding-block: 0.6rem; font-weight: 700; }
 
+/* Highlights: picture on the left on phones and tablets; 3 cards over 2 on wide screens. The whole card is the link. */
+.highlights { display: grid; gap: var(--space-3); margin: 0; padding: 0; list-style: none; }
+.highlight { position: relative; display: grid; grid-template-columns: 8rem minmax(0, 1fr); align-items: center; max-width: none; overflow: hidden; background: var(--paper); border: 1px solid var(--rule); border-radius: calc(var(--radius) * 2); }
+.highlight-media { height: 100%; min-height: 6rem; background: var(--surface); }
+.highlight-media picture { display: block; height: 100%; }
+.highlight-media img { width: 100%; height: 100%; object-fit: cover; }
+/* Both logos sit on near black, so the box matches them. */
+.highlight-logo { padding: var(--space-1); background: #010103; }
+.highlight-logo-inclusive-jahangirnagar { background: #040507; }
+.highlight-logo img { max-width: 256px; margin-inline: auto; object-fit: contain; }
+.highlight h3 { margin: 0; padding: var(--space-2) var(--space-3); font-size: var(--size-body); line-height: 1.4; }
+.highlight a { text-decoration: none; }
+.highlight a::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+.highlight:hover { border-color: var(--green); }
+.highlight:hover a { text-decoration: underline; }
+.highlight a:focus-visible { outline: none; }
+.highlight a:focus-visible::after { outline: var(--focus-ring); outline-offset: -3px; }
+@media (min-width: 60rem) {
+  .highlights { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: var(--space-4); }
+  .highlight { grid-column: span 2; grid-template-columns: none; grid-template-rows: auto 1fr; align-items: start; }
+  .highlight:nth-child(n + 4) { grid-column: span 3; }
+  .highlight-media { height: 12rem; }
+  .highlight-logo { padding: var(--space-3); }
+  .highlight h3 { padding: var(--space-3); font-size: var(--size-h4); }
+}
+@media (forced-colors: active) { .highlight { border-color: CanvasText; } }
+
 /* Inner pages */
 .page { padding-block: var(--space-6) var(--space-7); }
 .prose h2 { margin-top: var(--space-6); }
@@ -212,6 +239,21 @@ a.button { display: inline-flex; align-items: center; text-decoration: none; }
 .updates dt { font-weight: 700; }
 .updates dd { margin: 0; }
 @media (max-width: 30rem) { .updates { grid-template-columns: 1fr; } .updates dd { margin-bottom: var(--space-2); } }
+
+/* Photos with captions: one wide, or two or three in a row. All photos share the 3 by 2 shape. */
+.photos { display: grid; gap: var(--space-4); margin: var(--space-4) 0 var(--space-5); }
+.photos-1 { max-width: 46rem; }
+@media (min-width: 48rem) { .photos-2, .photos-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 60rem) { .photos-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.photo { margin: 0; }
+.photo img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border: 1px solid var(--rule); border-radius: var(--radius); }
+.photo figcaption { max-width: none; margin-top: var(--space-1); font-size: var(--size-small); line-height: 1.5; color: var(--ink-soft); }
+
+/* An organisation's logo beside the paragraph about it */
+.org { display: grid; grid-template-columns: 4rem minmax(0, 1fr); gap: var(--space-3); align-items: start; scroll-margin-top: var(--space-4); }
+.org img { width: 4rem; height: 4rem; border-radius: var(--radius); }
+.org p { margin-bottom: 0; }
+@media (max-width: 30rem) { .org { grid-template-columns: 3rem minmax(0, 1fr); } .org img { width: 3rem; height: 3rem; } }
 .search-page { margin-bottom: var(--space-4); }
 .search-page label { display: block; margin-bottom: var(--space-1); }
 .search-page input { width: min(100%, 28rem); }

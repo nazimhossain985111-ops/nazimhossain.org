@@ -6,6 +6,7 @@ status: In progress
 started: May 2025
 expected: November 2026
 order: 1
+photos: [bangla-academy]
 summary: An empirical study of how expert knowledge is used in the policy formulation process in Bangladesh. The study draws on interviews with faculty members of public universities and researchers at think tanks.
 updates:
   - date: Early 2026

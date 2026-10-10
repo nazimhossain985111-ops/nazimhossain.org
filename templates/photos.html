@@ -1,0 +1,14 @@
+{% set n = keys | length %}
+{% set sizes = {1: "(min-width: 48rem) 46rem", 2: "(min-width: 48rem) 35rem"}.get(n, "(min-width: 60rem) 23rem, (min-width: 48rem) 35rem") ~ ", calc(100vw - 2rem)" %}
+<div class="photos photos-{{ n }}">
+  {% for key in keys %}
+  {% set p = photos[key] %}
+  <figure class="photo">
+    <picture>
+      <source type="image/webp" srcset="/img/photos/{{ key }}-640.webp 640w, /img/photos/{{ key }}-1200.webp {{ p.width }}w" sizes="{{ sizes }}">
+      <img src="/img/photos/{{ key }}-640.jpg" srcset="/img/photos/{{ key }}-640.jpg 640w, /img/photos/{{ key }}-1200.jpg {{ p.width }}w" sizes="{{ sizes }}" width="{{ p.width }}" height="{{ p.height }}" alt="{{ p.alt }}" loading="lazy" decoding="async">
+    </picture>
+    <figcaption>{{ p.caption }}{% if p.credit %} Photo: {% if p.source %}<a href="{{ p.source }}">{{ p.credit }}</a>{% else %}{{ p.credit }}{% endif %}.{% endif %}</figcaption>
+  </figure>
+  {% endfor %}
+</div>

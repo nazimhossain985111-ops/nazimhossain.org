@@ -21,6 +21,15 @@ nav:
   - {key: contact, label: "Contact", url: /contact/}
   - {key: suggestions-and-support, label: "Suggestions and Support", url: /suggestions-and-support/}
 
+# The Highlights cards on the home page, in this order. Each card shows a photo
+# from content/photos.yaml (photo:) or a logo (logo: race-master or inclusive-jahangirnagar).
+highlights:
+  - {text: "Research Fellow at Bangla Academy", url: "/ongoing-projects/#expert-knowledge-in-policy", photo: bangla-academy}
+  - {text: "Research Assistant at Jahangirnagar University", url: "/ongoing-projects/#disability-rights-initiative-ju", photo: disability-seminar-speech}
+  - {text: "Developer of Race Master, an audio racing game for blind players", url: "/games-and-tools/#race-master", logo: race-master}
+  - {text: "Initiator and Chief Coordinator of the Anti-Discrimination Visually Impaired Students' Movement", url: "/about/#movement", photo: movement-public-administration}
+  - {text: "Founder and President of Inclusive Jahangirnagar", url: "/about/#inclusive-jahangirnagar", logo: inclusive-jahangirnagar}
+
 footer_links:
   - {label: "Accessibility Statement", url: /accessibility/}
   - {label: "Privacy Policy", url: /privacy/}
