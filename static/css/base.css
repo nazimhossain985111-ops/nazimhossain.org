@@ -180,6 +180,7 @@ a.button { display: inline-flex; align-items: center; text-decoration: none; }
 }
 .site-nav a:hover { text-decoration: underline; text-underline-offset: 0.25em; }
 .site-nav a[aria-current] { font-weight: 700; border-bottom-color: var(--green); }
+@media (min-width: 72rem) { .site-nav a { font-size: 1.1875rem; } }
 
 /* Home */
 .hero { display: grid; gap: var(--space-5); align-items: center; padding-block: var(--space-6); }
@@ -266,6 +267,31 @@ a.button { display: inline-flex; align-items: center; text-decoration: none; }
 
 /* Inner pages */
 .page { padding-block: var(--space-6) var(--space-7); }
+/* Every inner page opens the same way: breadcrumb, title, one introductory line, then a rule. */
+.page-header { margin-bottom: var(--space-5); padding-bottom: var(--space-4); border-bottom: 1px solid var(--rule); }
+.page-header h1 { margin-bottom: var(--space-2); }
+.page-header > :last-child { margin-bottom: 0; }
+.lead { font-size: var(--size-h4); line-height: 1.5; color: var(--ink-soft); }
+
+/* About: text with quick facts beside it on wide screens */
+.about-columns { display: grid; gap: var(--space-5); }
+@media (min-width: 60rem) { .about-columns { grid-template-columns: minmax(0, 1fr) 18rem; gap: var(--space-6); align-items: start; } }
+.about-aside { padding: var(--space-4); background: var(--surface); border-radius: calc(var(--radius) * 2); }
+.about-aside img { width: 100%; max-width: 15rem; margin-bottom: var(--space-3); aspect-ratio: 4 / 5; object-fit: cover; border: 1px solid var(--rule); border-radius: var(--radius); }
+.about-aside h2 { margin-bottom: var(--space-2); font-size: var(--size-h3); }
+.quick-facts { margin-bottom: var(--space-4); }
+.quick-facts dt { font-weight: 700; }
+.quick-facts dd { margin: 0; overflow-wrap: anywhere; }
+.quick-facts div { margin-bottom: var(--space-2); }
+
+/* Timelines: dates on the left, details on the right */
+.timeline { margin: 0 0 var(--space-4); border-bottom: 1px solid var(--rule); }
+.timeline div { display: grid; grid-template-columns: 13rem minmax(0, 1fr); gap: var(--space-1) var(--space-4); padding-block: var(--space-3); border-top: 1px solid var(--rule); }
+.timeline dt { color: var(--ink-soft); }
+.timeline dd { margin: 0; }
+.timeline dd p { margin: 0; }
+.timeline-role { font-weight: 700; }
+@media (max-width: 30rem) { .timeline div { grid-template-columns: 1fr; } }
 .prose h2 { margin-top: var(--space-6); }
 .prose > :first-child { margin-top: 0; }
 .project { margin-top: var(--space-6); padding-top: var(--space-5); border-top: 1px solid var(--rule); }

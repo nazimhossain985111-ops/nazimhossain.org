@@ -2,7 +2,7 @@
 {% block head %}<script src="/js/search.js?v={{ version }}" type="module"></script>{% endblock %}
 {% block main %}
 <div class="wrap page">
-  <h1>Search</h1>
+  {% include "page_header.html" %}
   <form class="search-page" role="search" aria-label="Search page" action="/search/" method="get">
     <label for="search-page-input">Search this website</label>
     <div class="field-row">

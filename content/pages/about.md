@@ -1,6 +1,12 @@
 ---
 title: About
 description: About Nazim Hossain, a researcher, disability rights advocate and developer of accessible audio games from Bangladesh.
+# Quick facts shown beside the text, with the portrait and the Download CV button.
+facts:
+  - {label: "Current roles", lines: ["Research Fellow, Bangla Academy", "Research Assistant, Jahangirnagar University"]}
+  - {label: "Education", lines: ["MSS and BSS in Government and Politics, Jahangirnagar University"]}
+  - {label: "Languages", lines: ["Bangla and English"]}
+  - {label: "Country", lines: ["Bangladesh"]}
 ---
 I am a researcher from Bangladesh working on public policy, governance and the rights of persons with disabilities.
 
@@ -10,15 +16,23 @@ My goal is to contribute to public policy in Bangladesh through research, univer
 
 ## Education
 
-I hold a Master of Social Science (MSS, 2024 to 2025) and a Bachelor of Social Science (BSS, 2019 to 2024) from the Department of Government and Politics at Jahangirnagar University.
+<dl class="timeline">
+<div><dt>2024 to 2025</dt><dd><p class="timeline-role">Master of Social Science (MSS)</p><p>Department of Government and Politics, Jahangirnagar University</p></dd></div>
+<div><dt>2019 to 2024</dt><dd><p class="timeline-role">Bachelor of Social Science (BSS)</p><p>Department of Government and Politics, Jahangirnagar University</p></dd></div>
+</dl>
 
 ## Experience
 
-Since May 2025 I have been a Research Fellow at Bangla Academy, working on an empirical study of the role of expert knowledge in the policy formulation process in Bangladesh.
+<dl class="timeline">
+<div><dt>July 2026 to present</dt><dd><p class="timeline-role">Research Assistant, Jahangirnagar University</p><p>Disability Rights Research Initiative of the Department of International Relations. The initiative is carried out with Sightsavers' Equal Bangladesh campaign, with the Centre for Disability in Development (CDD) as implementing partner.</p></dd></div>
+<div><dt>May 2025 to present</dt><dd><p class="timeline-role">Research Fellow, Bangla Academy</p><p>An empirical study of the role of expert knowledge in the policy formulation process in Bangladesh.</p></dd></div>
+<div><dt>May to September 2024</dt><dd><p class="timeline-role">English Teacher, Dalal Bazar N.K. High School</p></dd></div>
+<div><dt>November and December 2020 and 2021</dt><dd><p class="timeline-role">Braille Proofreader, Innovation Garage Limited</p></dd></div>
+</dl>
 
-Since July 2026 I have also been a Research Assistant in the Disability Rights Research Initiative of the Department of International Relations at Jahangirnagar University. The initiative is carried out with Sightsavers' Equal Bangladesh campaign, with the Centre for Disability in Development (CDD) as implementing partner.
+I also work as a freelance content writer.
 
-Before that, I taught English at Dalal Bazar N.K. High School from May to September 2024, and I worked as a Braille proofreader at Innovation Garage Limited in November and December of both 2020 and 2021. I also work as a freelance content writer.
+[[columns-end]]
 
 ## Leadership and advocacy
 

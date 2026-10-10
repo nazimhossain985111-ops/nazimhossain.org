@@ -59,7 +59,15 @@ def load_pages() -> dict[str, dict]:
     for path in sorted((CONTENT / "pages").glob("*.md")):
         meta, body = split_front_matter(path)
         url = meta.get("url", f"/{path.stem}/")
-        pages[path.stem] = {**meta, "key": path.stem, "url": url, "body": to_html(body)}
+        html = to_html(body)
+        # The opening paragraph becomes the page's lead, shown under the title in the page header.
+        lead = re.match(r"<p>(?!\[\[).*?</p>\s*", html, re.S)
+        if lead and not lead.group(0).strip().endswith(":</p>"):  # a line ending in a colon belongs with what follows
+            html = html[lead.end():]
+            lead = lead.group(0).strip().replace("<p>", '<p class="lead">', 1)
+        else:
+            lead = None
+        pages[path.stem] = {**meta, "key": path.stem, "url": url, "lead": lead, "body": html}
     return pages
 
 
@@ -161,7 +169,7 @@ def main() -> None:
         if key == "404":
             render("/404.html", "page.html", page={**page, "url": "/404.html", "noindex": True})
             continue
-        template = {"ongoing-projects": "projects.html", "blog": "blog.html"}.get(key, "page.html")
+        template = {"ongoing-projects": "projects.html", "blog": "blog.html", "about": "about.html"}.get(key, "page.html")
         render(page["url"], template, page=page, projects=projects, posts=posts)
         if not page.get("noindex"):
             sitemap.append(page["url"])

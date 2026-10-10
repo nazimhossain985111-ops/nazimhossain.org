@@ -1,5 +1,21 @@
 {% extends "base.html" %}
 {% block title %}{{ site.name }}{% endblock %}
+{% block head %}
+<script type="application/ld+json">{{ {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": site.name,
+  "url": site.url,
+  "image": site.url ~ "/img/portrait-800.jpg",
+  "description": site.description,
+  "email": "mailto:" ~ site.email,
+  "jobTitle": "Research Fellow",
+  "worksFor": {"@type": "Organization", "name": "Bangla Academy"},
+  "alumniOf": {"@type": "CollegeOrUniversity", "name": "Jahangirnagar University"},
+  "knowsLanguage": ["bn", "en"],
+  "sameAs": site.profiles | map(attribute="url") | list
+} | tojson }}</script>
+{% endblock %}
 {% block main %}
 <section class="hero wrap" aria-labelledby="hero-name">
   <picture class="portrait">

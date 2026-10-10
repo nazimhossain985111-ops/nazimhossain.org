@@ -1,5 +1,5 @@
 ---
-title: Message sent
+title: Message Sent
 noindex: true
 description: Your message has been sent.
 ---

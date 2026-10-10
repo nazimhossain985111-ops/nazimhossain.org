@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block main %}
+{# Text above [[columns-end]] sits beside the quick facts; the rest runs full width below. #}
+{% set parts = page.body.split("<p>[[columns-end]]</p>") %}
+<div class="wrap page">
+  {% include "page_header.html" %}
+  <div class="about-columns">
+    <div class="prose">{{ parts[0] | safe }}</div>
+    <aside class="about-aside" aria-labelledby="quick-facts">
+      <picture>
+        <source type="image/webp" srcset="/img/portrait-480.webp 480w, /img/portrait-800.webp 600w" sizes="15rem">
+        <img src="/img/portrait-480.jpg" srcset="/img/portrait-480.jpg 480w, /img/portrait-800.jpg 600w" sizes="15rem" width="600" height="750" alt="{{ site.portrait_alt }}" loading="lazy">
+      </picture>
+      <h2 id="quick-facts">Quick facts</h2>
+      <dl class="quick-facts">
+        {% for f in page.facts %}<div><dt>{{ f.label }}</dt>{% for v in f.lines %}<dd>{{ v }}</dd>{% endfor %}</div>{% endfor %}
+        <div><dt>Email</dt><dd><a href="mailto:{{ site.email }}">{{ site.email }}</a></dd></div>
+      </dl>
+      <a class="button" href="{{ site.cv }}" download>Download CV<span class="visually-hidden"> ({{ site.cv_size }})</span></a>
+    </aside>
+  </div>
+  {% if parts | length > 1 %}<div class="prose">{{ parts[1] | safe }}</div>{% endif %}
+</div>
+{% endblock %}

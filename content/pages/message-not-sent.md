@@ -1,5 +1,5 @@
 ---
-title: Message not sent
+title: Message Not Sent
 noindex: true
 description: Your message could not be sent.
 ---
