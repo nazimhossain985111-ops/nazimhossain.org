@@ -168,7 +168,9 @@ a.button { display: inline-flex; align-items: center; text-decoration: none; }
   cursor: pointer;
 }
 .menu-toggle[aria-expanded="true"] { color: var(--paper); background: var(--ink); }
-.site-nav ul { display: flex; flex-wrap: wrap; gap: 0 1.125rem; margin: 0; padding: 0; list-style: none; }
+/* The menu has its own row under the name, so all seven items fit without crowding. */
+.site-nav { order: 1; flex-basis: 100%; border-top: 1px solid var(--rule); }
+.site-nav ul { display: flex; flex-wrap: wrap; gap: 0 var(--space-4); margin: 0; padding: 0; list-style: none; }
 .site-nav li { max-width: none; }
 .site-nav a {
   display: block; padding: 0.6rem 0.1rem;
@@ -241,10 +243,12 @@ a.button { display: inline-flex; align-items: center; text-decoration: none; }
 }
 
 /* Phones and small tablets */
-@media (max-width: 74.99rem) {
+@media (min-width: 60rem) {
+  .masthead { padding-bottom: 0; }
+}
+@media (max-width: 59.99rem) {
   .js .menu-toggle { display: inline-block; }
   .js .menu-toggle[aria-expanded="false"] + .site-nav { display: none; }
-  .site-nav { order: 1; flex-basis: 100%; border-top: 1px solid var(--rule); }
   .site-nav ul { flex-direction: column; }
   .site-nav a { padding-block: 0.7rem; font-size: var(--size-body); border-bottom: 1px solid var(--rule); }
   .site-nav a[aria-current] { padding-left: 0.75rem; border-left: 4px solid var(--green); border-bottom-color: var(--rule); }

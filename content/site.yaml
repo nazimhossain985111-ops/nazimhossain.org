@@ -16,12 +16,12 @@ nav:
   - {key: research, label: "Research", url: /research/}
   - {key: ongoing-projects, label: "Ongoing Projects", url: /ongoing-projects/}
   - {key: writings, label: "Writings", url: /writings/, also: [blog, book-reviews, poems, short-stories]}
+  - {key: games-and-tools, label: "Games and Tools", url: /games-and-tools/}
   - {key: about, label: "About", url: /about/}
   - {key: contact, label: "Contact", url: /contact/}
   - {key: suggestions-and-support, label: "Suggestions and Support", url: /suggestions-and-support/}
 
 footer_links:
-  - {label: "Games and Tools", url: /games-and-tools/}
   - {label: "Accessibility Statement", url: /accessibility/}
   - {label: "Privacy Policy", url: /privacy/}
 
