@@ -25,6 +25,7 @@ My goal is to contribute to public policy in Bangladesh through research, univer
 
 <dl class="timeline">
 <div><dt>July 2026 to present</dt><dd><p class="timeline-role">Research Assistant, Jahangirnagar University</p><p>Disability Rights Research Initiative of the Department of International Relations. The initiative is carried out with Sightsavers' Equal Bangladesh campaign, with the Centre for Disability in Development (CDD) as implementing partner.</p></dd></div>
+<div><dt>October to November 2025</dt><dd><p class="timeline-role">Braille Proofreader, Intellion Techbridge</p><p>Checked Braille documents for accuracy, spelling and correct formatting before production.</p></dd></div>
 <div><dt>May 2025 to present</dt><dd><p class="timeline-role">Research Fellow, Bangla Academy</p><p>An empirical study of the role of expert knowledge in the policy formulation process in Bangladesh.</p></dd></div>
 <div><dt>May to September 2024</dt><dd><p class="timeline-role">English Teacher, Dalal Bazar N.K. High School</p></dd></div>
 <div><dt>November and December 2020 and 2021</dt><dd><p class="timeline-role">Braille Proofreader, Innovation Garage Limited</p></dd></div>
