@@ -344,7 +344,8 @@ a.button { display: inline-flex; align-items: center; text-decoration: none; }
 .site-footer .mark .sun { fill: var(--sun); }
 .footer-links { display: flex; flex-wrap: wrap; gap: 0 var(--space-5); margin: 0; padding: 0; list-style: none; }
 .footer-links a { display: inline-block; padding-block: 0.6rem; }
-.copyright { margin: 0; }
+.copyright { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-2) var(--space-4); max-width: none; margin: 0; }
+.back-to-top { display: inline-block; padding-block: 0.6rem; margin-block: -0.6rem; }
 
 /* Wider screens */
 @media (min-width: 56rem) {

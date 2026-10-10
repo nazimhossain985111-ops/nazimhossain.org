@@ -34,5 +34,5 @@ Pages translated through the language picker are produced by Google Translate. T
 
 If anything on this website is difficult to use, please tell me. Email [contact@nazimhossain.org](mailto:contact@nazimhossain.org), name the page and describe the problem. I will do my best to fix it quickly.
 
-This statement was last reviewed on 10 October 2026.
+This statement was last reviewed on 11 October 2026.
 {: .note }
