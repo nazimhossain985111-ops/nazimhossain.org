@@ -28,7 +28,10 @@ CONTENT = ROOT / "content"
 STATIC = ROOT / "static"
 DIST = ROOT / "dist"
 CSS_PARTS = [ROOT / "design" / "tokens.css", STATIC / "css" / "fonts.css", STATIC / "css" / "base.css"]
-FORM_MARKER = re.compile(r"<p>\[\[form:([a-z-]+)\]\]</p>")
+# [[form:key]] inserts a form. [[form:key:4]] does the same under an h3 section, so its error heading is an h4.
+FORM_MARKER = re.compile(r"<p>\[\[form:([a-z-]+)(?::([3-6]))?\]\]</p>")
+# Old addresses that now live elsewhere. The worker sends visitors on with a permanent redirect.
+REDIRECTS = {"/need-help/": "/suggestions-and-support/"}
 
 
 def split_front_matter(path: Path) -> tuple[dict, str]:
@@ -118,13 +121,14 @@ def main() -> None:
     env.filters["longdate"] = long_date
     env.globals.update(site=site, year=dt.date.today().year, version=dt.datetime.now().strftime("%Y%m%d%H%M"))
 
-    # The worker that sends form email reads the same form settings.
+    # The worker that sends form email reads the same form settings, and the redirects.
     (ROOT / "worker" / "forms.json").write_text(json.dumps(forms, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    (ROOT / "worker" / "redirects.json").write_text(json.dumps(REDIRECTS, indent=2) + "\n", encoding="utf-8")
 
     def insert_forms(page: dict) -> dict:
         def form_html(match: re.Match) -> str:
             key = match.group(1)
-            return env.get_template("form.html").render(key=key, form=forms[key])
+            return env.get_template("form.html").render(key=key, form=forms[key], level=int(match.group(2) or 3))
         body, count = FORM_MARKER.subn(form_html, page["body"])
         return {**page, "body": body, "has_forms": count > 0}
 
@@ -141,7 +145,11 @@ def main() -> None:
 
     sitemap = ["/"]
     home = {"key": "home", "title": site["name"], "url": "/", "description": site["description"]}
-    render("/", "home.html", page=home, projects=projects, posts=posts, need_help=pages.get("need-help"))
+    render("/", "home.html", page=home, projects=projects, posts=posts, need_help=pages.get("suggestions-and-support"))
+
+    # A fallback page at each old address, for local preview. On the live site the worker redirects first.
+    for old, new in REDIRECTS.items():
+        render(old, "redirect.html", page={"key": "redirect", "title": "Page moved", "url": old, "target": new, "noindex": True})
 
     for key, page in pages.items():
         page = insert_forms(page)

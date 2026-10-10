@@ -3,6 +3,7 @@
  *
  * - Serves the built website from the dist folder.
  * - Sends www.nazimhossain.org visitors to nazimhossain.org.
+ * - Sends visitors from old addresses, such as /need-help/, to their new pages.
  * - Receives the forms at /api/send and emails them to Nazim.
  *
  * The address that receives the forms is the FORM_TO secret, set in the
@@ -10,6 +11,7 @@
  */
 import { EmailMessage } from "cloudflare:email";
 import FORMS from "./forms.json";
+import REDIRECTS from "./redirects.json";
 
 const SITE = "https://nazimhossain.org";
 const FROM = "forms@nazimhossain.org";
@@ -25,6 +27,11 @@ export default {
     const url = new URL(request.url);
     if (url.hostname.startsWith("www.")) {
       return Response.redirect(SITE + url.pathname + url.search, 301);
+    }
+    // Old addresses. The browser keeps any #section part of the link.
+    const moved = REDIRECTS[url.pathname] || REDIRECTS[url.pathname + "/"] || REDIRECTS[url.pathname.replace(/index\.html$/, "")];
+    if (moved) {
+      return Response.redirect(SITE + moved + url.search, 301);
     }
     if (url.pathname === "/api/send") {
       if (request.method !== "POST") {

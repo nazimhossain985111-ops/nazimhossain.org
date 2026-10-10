@@ -10,4 +10,4 @@ You may write in Bangla or English, and I will reply as soon as I can.
 
 ## Before you write
 
-If you need guidance on research, careers or disability rights, the forms on the [Need Help](/need-help/) page help me understand your situation quickly. To share feedback on my work, you can use the suggestion form on [Suggestions and Support](/suggestions-and-support/#suggestions), where you may stay anonymous. For help with Race Master, the [Race Master Guide](/games-and-tools/race-master/) answers most questions. If yours is not answered there, please email me.
+If you need guidance on research, careers or disability rights, the Need Help forms on the [Suggestions and Support](/suggestions-and-support/#need-help) page help me understand your situation quickly. To share feedback on my work, you can use the suggestion form on [Suggestions and Support](/suggestions-and-support/#suggestions), where you may stay anonymous. For help with Race Master, the [Race Master Guide](/games-and-tools/race-master/) answers most questions. If yours is not answered there, please email me.

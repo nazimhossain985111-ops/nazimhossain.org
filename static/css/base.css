@@ -327,7 +327,7 @@ fieldset.choices legend { margin-bottom: var(--space-2); padding: 0; font-weight
 .error-text { margin: 0 0 var(--space-1); color: var(--red); font-weight: 700; }
 .request-form [aria-invalid="true"] { border: 2px solid var(--red); }
 .form-errors { margin-bottom: var(--space-4); padding: var(--space-3); background: var(--paper); border: 2px solid var(--red); border-radius: var(--radius); }
-.form-errors h3 { margin-bottom: var(--space-1); font-family: var(--font-body); font-size: var(--size-body); font-weight: 700; }
+.form-errors :is(h3, h4) { margin-bottom: var(--space-1); font-family: var(--font-body); font-size: var(--size-body); font-weight: 700; }
 .form-errors ul { margin: 0; padding: 0; list-style: none; }
 .form-errors a { color: var(--red); font-weight: 700; }
 .form-status:empty { display: none; }
@@ -347,7 +347,7 @@ main { flex: 1 0 auto; }
 #search-status:focus, [data-status]:focus, [data-errors]:focus { outline: none; }
 .prose > h2:first-child { margin-top: var(--space-5); }
 .project h3 { margin-top: var(--space-5); }
-.request-form .form-errors h3 { margin-top: 0; }
+.request-form .form-errors :is(h3, h4) { margin-top: 0; }
 details.bank[open] .when-closed, details.bank:not([open]) .when-open { display: none; }
 .prose p:not(.checksum) code { white-space: nowrap; }
 @media (max-width: 30rem) {
