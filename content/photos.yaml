@@ -76,3 +76,11 @@ talk-netrokona-group:
   shape: wide
   alt: "Nazim Hossain, wearing the cream ceremonial scarf, stands in the middle of a large group of men and women in a conference room, in front of the lecture banner."
   caption: "With the guests and participants after the lecture."
+
+# A frame from the second lecture video. The video is 832 pixels wide, so the 1200 files hold 832 pixels.
+talk-netrokona-video:
+  width: 832
+  height: 468
+  shape: wide
+  alt: "Nazim Hossain, wearing the cream ceremonial scarf, speaks at a microphone during the lecture, while a guest in a checked jacket listens, seated beside him, in front of the lecture banner."
+  caption: "Giving the lecture at Netrokona University."

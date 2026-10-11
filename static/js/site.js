@@ -1,4 +1,4 @@
-/* nazimhossain.org: footer year, menu button, gallery sorting and language button.
+/* nazimhossain.org: footer year, menu button, gallery sorting, video subtitles and language button.
    No tracking. Nothing is sent anywhere until a visitor chooses to translate a page. */
 (function () {
   "use strict";
@@ -32,6 +32,15 @@
       });
       items.forEach(function (item) { sortList.appendChild(item); });
       sortMessage.textContent = select.value === "name" ? "Sorted by name, A to Z." : "Sorted by date, newest first.";
+    });
+  }
+
+  /* Video subtitles: English shows by default. A visitor whose browser is set to Bangla sees the Bangla captions instead. */
+  if (/^bn\b/i.test(navigator.language || "")) {
+    document.querySelectorAll("video").forEach(function (video) {
+      Array.prototype.forEach.call(video.textTracks, function (track) {
+        track.mode = track.language === "bn" ? "showing" : "disabled";
+      });
     });
   }
 

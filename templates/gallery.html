@@ -21,8 +21,8 @@
       {% if e.title_bn %}<p class="title-bn" lang="bn">{{ e.title_bn }}</p>{% endif %}
       <p class="gallery-meta">{{ e.place }}, <time datetime="{{ e.date }}">{{ e.date | longdate }}</time>.</p>
       {% if e.text %}<p>{{ e.text }}</p>{% endif %}
-      {% set keys = e.photos %}
-      {% include "photos.html" %}
+      {% if e.photos %}{% set keys = e.photos %}{% include "photos.html" %}{% endif %}
+      {% if e.videos %}{% set videos = e.videos %}{% include "videos.html" %}{% endif %}
     </section>
     {% endfor %}
   </div>

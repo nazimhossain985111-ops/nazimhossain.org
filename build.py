@@ -22,6 +22,7 @@ from pathlib import Path
 import markdown
 import yaml
 from jinja2 import Environment, FileSystemLoader, select_autoescape
+from markupsafe import Markup, escape
 
 ROOT = Path(__file__).resolve().parent
 CONTENT = ROOT / "content"
@@ -52,6 +53,29 @@ def long_date(value) -> str:
     if isinstance(value, str):
         value = dt.date.fromisoformat(value)
     return f"{value.day} {value:%B %Y}"
+
+
+def transcript(file: str, lang: str) -> list[Markup]:
+    """The words of a video's captions file (static/video/<file>.<lang>.vtt), as paragraphs.
+
+    A blank line between cues in the file only separates cues, so a paragraph starts where
+    a NOTE paragraph line stands between two cues. Words in another language are marked in
+    the captions as <lang en>...</lang>, and become <span lang="en"> so screen readers switch voice.
+    """
+    text = (STATIC / "video" / f"{file}.{lang}.vtt").read_text(encoding="utf-8")
+    paragraphs, words = [], []
+    for block in re.split(r"\n\s*\n", text.strip())[1:]:
+        lines = block.strip().splitlines()
+        if lines[0].startswith("NOTE paragraph"):
+            if words:
+                paragraphs.append(" ".join(words))
+            words = []
+        elif "-->" in lines[0] or (len(lines) > 1 and "-->" in lines[1]):
+            start = 1 if "-->" in lines[0] else 2
+            words.extend(line.strip() for line in lines[start:])
+    if words:
+        paragraphs.append(" ".join(words))
+    return [Markup(re.sub(r"&lt;lang ([a-z-]+)&gt;(.*?)&lt;/lang&gt;", r'<span lang="\1">\2</span>', str(escape(p)))) for p in paragraphs]
 
 
 def load_pages() -> dict[str, dict]:
@@ -131,7 +155,7 @@ def main() -> None:
         lstrip_blocks=True,
     )
     env.filters["longdate"] = long_date
-    env.globals.update(site=site, photos=photos, year=dt.date.today().year, version=dt.datetime.now().strftime("%Y%m%d%H%M"))
+    env.globals.update(site=site, photos=photos, transcript=transcript, year=dt.date.today().year, version=dt.datetime.now().strftime("%Y%m%d%H%M"))
 
     # The worker that sends form email reads the same form settings, and the redirects.
     (ROOT / "worker" / "forms.json").write_text(json.dumps(forms, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -169,7 +193,7 @@ def main() -> None:
         if key == "404":
             render("/404.html", "page.html", page={**page, "url": "/404.html", "noindex": True})
             continue
-        template = {"ongoing-projects": "projects.html", "blog": "blog.html", "about": "about.html", "talks-pictures": "gallery.html"}.get(key, "page.html")
+        template = {"ongoing-projects": "projects.html", "blog": "blog.html", "about": "about.html", "talks-pictures": "gallery.html", "talks-videos": "gallery.html"}.get(key, "page.html")
         render(page["url"], template, page=page, projects=projects, posts=posts)
         if not page.get("noindex"):
             sitemap.append(page["url"])

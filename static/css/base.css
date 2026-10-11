@@ -238,9 +238,18 @@ a.button { display: inline-flex; align-items: center; text-decoration: none; }
 .gallery-sort label { font-weight: 700; }
 .gallery-event + .gallery-event { margin-top: var(--space-6); padding-top: var(--space-5); border-top: 1px solid var(--rule); }
 .gallery-event h2 { margin-top: 0; }
+.prose + .gallery, .prose + .gallery-sort { margin-top: var(--space-5); }
 .gallery-meta { font-weight: 700; }
 .gallery .photos { max-width: none; }
 @media (min-width: 48rem) { .gallery .photos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Videos, each with Bangla captions and a transcript to read */
+.videos { display: grid; gap: var(--space-5); max-width: 46rem; margin: var(--space-4) 0 var(--space-5); }
+.video { margin: 0; }
+.video video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #000; border-radius: var(--radius); }
+.video figcaption { max-width: none; margin-top: var(--space-1); font-size: var(--size-small); line-height: 1.5; color: var(--ink-soft); }
+.transcript summary { display: inline-flex; align-items: center; min-height: var(--target-min); font-weight: 700; color: var(--green); cursor: pointer; }
+.transcript h3 { margin-top: var(--space-4); }
 
 /* Cards that lead to the parts of a section, such as Talks */
 .section-cards { margin-top: var(--space-4); }

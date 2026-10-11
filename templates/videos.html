@@ -1,0 +1,19 @@
+<div class="videos">
+  {% for v in videos %}
+  <figure class="video">
+    <video controls preload="none" playsinline poster="/video/{{ v.file }}.jpg" width="{{ v.width }}" height="{{ v.height }}">
+      <source src="/video/{{ v.file }}.mp4" type="video/mp4">
+      {% if v.english %}<track kind="subtitles" src="/video/{{ v.file }}.en.vtt" srclang="en" label="English" default>{% endif %}
+      <track kind="captions" src="/video/{{ v.file }}.bn.vtt" srclang="bn" label="বাংলা (Bangla)"{% if not v.english %} default{% endif %}>
+      <a href="/video/{{ v.file }}.mp4">Download the video</a>
+    </video>
+    <figcaption>{{ v.caption }} Length: {{ v.length }}.</figcaption>
+    <details class="transcript">
+      <summary>Read the transcript<span class="visually-hidden">: {{ v.caption }}</span></summary>
+      {% if v.english %}<div>{% for line in transcript(v.file, "en") %}<p>{{ line }}</p>{% endfor %}</div>
+      <h3 lang="bn">বাংলায় <span lang="en">(In Bangla)</span></h3>{% endif %}
+      <div lang="bn">{% for line in transcript(v.file, "bn") %}<p>{{ line }}</p>{% endfor %}</div>
+    </details>
+  </figure>
+  {% endfor %}
+</div>
