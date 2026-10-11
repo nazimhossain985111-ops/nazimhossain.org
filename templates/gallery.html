@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block main %}
+<div class="wrap page">
+  {% include "page_header.html" %}
+  {% if page.body %}<div class="prose">{{ page.body | safe }}</div>{% endif %}
+  {% set events = page.events | sort(attribute="date", reverse=true) %}
+  {% if events | length > 1 %}
+  <div class="gallery-sort" data-sort hidden>
+    <label for="gallery-sort">Sort by</label>
+    <select id="gallery-sort">
+      <option value="date">Date, newest first</option>
+      <option value="name">Name, A to Z</option>
+    </select>
+    <p class="visually-hidden" aria-live="polite" data-sort-message></p>
+  </div>
+  {% endif %}
+  <div class="gallery" data-sort-list>
+    {% for e in events %}
+    <section class="gallery-event" data-date="{{ e.date }}" data-name="{{ e.title }}" aria-labelledby="event-{{ loop.index }}">
+      <h2 id="event-{{ loop.index }}">{{ e.title }}</h2>
+      {% if e.title_bn %}<p class="title-bn" lang="bn">{{ e.title_bn }}</p>{% endif %}
+      <p class="gallery-meta">{{ e.place }}, <time datetime="{{ e.date }}">{{ e.date | longdate }}</time>.</p>
+      {% if e.text %}<p>{{ e.text }}</p>{% endif %}
+      {% set keys = e.photos %}
+      {% include "photos.html" %}
+    </section>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

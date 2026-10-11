@@ -3,5 +3,23 @@
 <div class="wrap page">
   {% include "page_header.html" %}
   <div class="prose">{{ page.body | safe }}</div>
+  {% if page.sections %}
+  <ul class="highlights section-cards">
+    {% for s in page.sections %}
+    <li class="highlight">
+      <div class="highlight-media">
+        <picture>
+          <source type="image/webp" srcset="/img/photos/{{ s.photo }}-640.webp 640w, /img/photos/{{ s.photo }}-1200.webp {{ photos[s.photo].width }}w" sizes="(min-width: 60rem) 24rem, 8rem">
+          <img src="/img/photos/{{ s.photo }}-640.jpg" width="{{ photos[s.photo].width }}" height="{{ photos[s.photo].height }}" alt="" loading="lazy" decoding="async"{% if s.focus %} style="object-position: {{ s.focus }}"{% endif %}>
+        </picture>
+      </div>
+      <div class="highlight-text">
+        <h2><a href="{{ s.url }}">{{ s.title }}</a></h2>
+        <p>{{ s.text }}</p>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
 </div>
 {% endblock %}

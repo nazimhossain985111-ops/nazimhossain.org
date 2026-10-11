@@ -3,7 +3,7 @@
 <div class="photos photos-{{ n }}">
   {% for key in keys %}
   {% set p = photos[key] %}
-  <figure class="photo">
+  <figure class="photo{% if p.shape == 'wide' %} photo-wide{% endif %}">
     <picture>
       <source type="image/webp" srcset="/img/photos/{{ key }}-640.webp 640w, /img/photos/{{ key }}-1200.webp {{ p.width }}w" sizes="{{ sizes }}">
       <img src="/img/photos/{{ key }}-640.jpg" srcset="/img/photos/{{ key }}-640.jpg 640w, /img/photos/{{ key }}-1200.jpg {{ p.width }}w" sizes="{{ sizes }}" width="{{ p.width }}" height="{{ p.height }}" alt="{{ p.alt }}" loading="lazy" decoding="async">

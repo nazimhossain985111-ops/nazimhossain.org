@@ -5,6 +5,7 @@
 # Show photos on a page with [[photos:key]], or up to three in a row with
 # [[photos:first-key second-key third-key]]. Projects list theirs under photos:.
 # credit and source are optional: they add "Photo: <credit>" linked to the source.
+# shape: wide keeps a 16 by 9 photo uncropped, for groups too wide for 3 by 2.
 
 movement-public-administration:
   width: 1200
@@ -61,3 +62,17 @@ disability-seminar-panel:
   height: 800
   alt: "Nazim Hossain, in a dark suit and red tie, speaks into a microphone, seated with four other panellists under the banner of the seminar Towards an Inclusive Jahangirnagar University."
   caption: "On the panel of the seminar Towards an Inclusive Jahangirnagar University on 4 August 2026."
+
+talk-netrokona-honour:
+  width: 1200
+  height: 675
+  shape: wide
+  alt: "Nazim Hossain, in a dark suit and glasses, has a cream ceremonial scarf placed around his neck by a man in a checked jacket, while a woman in a white shawl and pink sari applauds beside a conference table. Behind them, a Bangla banner names the lecture and its speakers."
+  caption: "Being honoured with an uttoriyo, a ceremonial scarf, at the Netrokona University Lecture Series."
+
+talk-netrokona-group:
+  width: 1200
+  height: 675
+  shape: wide
+  alt: "Nazim Hossain, wearing the cream ceremonial scarf, stands in the middle of a large group of men and women in a conference room, in front of the lecture banner."
+  caption: "With the guests and participants after the lecture."

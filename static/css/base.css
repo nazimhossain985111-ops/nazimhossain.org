@@ -61,7 +61,7 @@ main:focus, .site-header:focus { outline: none; }
 .skip-link:focus { transform: none; }
 
 /* Fields and buttons */
-input[type="text"], input[type="search"], input[type="email"], input[type="tel"], textarea {
+input[type="text"], input[type="search"], input[type="email"], input[type="tel"], textarea, select {
   font: inherit;
   color: var(--ink);
   background: var(--paper);
@@ -232,6 +232,23 @@ a.button { display: inline-flex; align-items: center; text-decoration: none; }
 }
 @media (forced-colors: active) { .highlight { border-color: CanvasText; } }
 
+/* Photo gallery, one section per event, with a Sort by menu */
+.gallery-sort { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); margin-bottom: var(--space-5); }
+.gallery-sort[hidden] { display: none; }
+.gallery-sort label { font-weight: 700; }
+.gallery-event + .gallery-event { margin-top: var(--space-6); padding-top: var(--space-5); border-top: 1px solid var(--rule); }
+.gallery-event h2 { margin-top: 0; }
+.gallery-meta { font-weight: 700; }
+.gallery .photos { max-width: none; }
+@media (min-width: 48rem) { .gallery .photos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Cards that lead to the parts of a section, such as Talks */
+.section-cards { margin-top: var(--space-4); }
+.section-cards .highlight-text { padding: var(--space-2) var(--space-3); }
+.section-cards h2 { margin: 0 0 var(--space-1); font-size: var(--size-h4); line-height: 1.35; }
+.section-cards p { margin: 0; color: var(--ink-soft); line-height: 1.5; }
+@media (min-width: 60rem) { .section-cards .highlight-text { padding: var(--space-3); } }
+
 /* Cards for projects, writing and help: one column on phones, two on tablets, three on wide screens. */
 .cards { display: grid; gap: var(--space-4); margin: 0 0 var(--space-4); padding: 0; list-style: none; }
 @media (min-width: 48rem) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
@@ -316,6 +333,7 @@ a.button { display: inline-flex; align-items: center; text-decoration: none; }
 @media (min-width: 60rem) { .photos-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .photo { margin: 0; }
 .photo img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border: 1px solid var(--rule); border-radius: var(--radius); }
+.photo-wide img { aspect-ratio: 16 / 9; }
 .photo figcaption { max-width: none; margin-top: var(--space-1); font-size: var(--size-small); line-height: 1.5; color: var(--ink-soft); }
 
 /* An organisation's logo beside the paragraph about it */
@@ -355,11 +373,11 @@ a.button { display: inline-flex; align-items: center; text-decoration: none; }
   .copyright { grid-column: 1 / -1; }
 }
 
-/* Phones and small tablets */
-@media (min-width: 60rem) {
+/* Phones, tablets and small laptops: the menu folds behind the Menu button */
+@media (min-width: 66rem) {
   .masthead { padding-bottom: 0; }
 }
-@media (max-width: 59.99rem) {
+@media (max-width: 65.99rem) {
   .js .menu-toggle { display: inline-block; }
   .js .menu-toggle[aria-expanded="false"] + .site-nav { display: none; }
   .site-nav ul { flex-direction: column; }

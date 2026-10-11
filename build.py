@@ -169,7 +169,7 @@ def main() -> None:
         if key == "404":
             render("/404.html", "page.html", page={**page, "url": "/404.html", "noindex": True})
             continue
-        template = {"ongoing-projects": "projects.html", "blog": "blog.html", "about": "about.html"}.get(key, "page.html")
+        template = {"ongoing-projects": "projects.html", "blog": "blog.html", "about": "about.html", "talks-pictures": "gallery.html"}.get(key, "page.html")
         render(page["url"], template, page=page, projects=projects, posts=posts)
         if not page.get("noindex"):
             sitemap.append(page["url"])

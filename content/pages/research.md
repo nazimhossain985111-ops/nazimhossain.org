@@ -28,4 +28,4 @@ Paper presented as a key speaker at a joint conference of Gono University and Ko
 
 ### Democratic Backsliding and Overcoming Democratic Barriers in Bangladesh
 
-Paper presentation, Netrokona University, 12 January 2026.
+Paper presentation, Netrokona University, 19 January 2026.

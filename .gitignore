@@ -16,6 +16,8 @@ node_modules/
 /*.zip
 /*.txt
 !/requirements.txt
+/Picture/
+/Videos/
 /WEBSITE_PLAN.md
 /content/site-copy.md
 /design/design-plan.md

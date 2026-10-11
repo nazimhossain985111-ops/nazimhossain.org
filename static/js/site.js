@@ -1,4 +1,4 @@
-/* nazimhossain.org: footer year, menu button and language button.
+/* nazimhossain.org: footer year, menu button, gallery sorting and language button.
    No tracking. Nothing is sent anywhere until a visitor chooses to translate a page. */
 (function () {
   "use strict";
@@ -13,6 +13,25 @@
       var open = menuButton.getAttribute("aria-expanded") === "true";
       menuButton.setAttribute("aria-expanded", String(!open));
       menuButton.textContent = open ? "Menu" : "Close menu";
+    });
+  }
+
+  /* Gallery sorting: by date, newest first, or by name, A to Z. Without JavaScript the date order stays. */
+  var sorter = document.querySelector("[data-sort]");
+  var sortList = document.querySelector("[data-sort-list]");
+  if (sorter && sortList) {
+    var select = sorter.querySelector("select");
+    var sortMessage = sorter.querySelector("[data-sort-message]");
+    sorter.hidden = false;
+    select.addEventListener("change", function () {
+      var items = Array.prototype.slice.call(sortList.children);
+      items.sort(function (a, b) {
+        return select.value === "name"
+          ? a.dataset.name.localeCompare(b.dataset.name, "en", { sensitivity: "base" })
+          : b.dataset.date.localeCompare(a.dataset.date);
+      });
+      items.forEach(function (item) { sortList.appendChild(item); });
+      sortMessage.textContent = select.value === "name" ? "Sorted by name, A to Z." : "Sorted by date, newest first.";
     });
   }
 

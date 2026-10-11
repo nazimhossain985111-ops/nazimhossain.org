@@ -16,6 +16,7 @@ cv_size: PDF, 212 KB
 nav:
   - {key: research, label: "Research", url: /research/}
   - {key: ongoing-projects, label: "Ongoing Projects", url: /ongoing-projects/}
+  - {key: talks, label: "Talks", url: /talks/, also: [talks-pictures]}
   - {key: writings, label: "Writings", url: /writings/, also: [blog, book-reviews, poems, short-stories]}
   - {key: games-and-tools, label: "Games and Tools", url: /games-and-tools/}
   - {key: about, label: "About", url: /about/}
